@@ -1,0 +1,33 @@
+export type Role = "ibu" | "bidan";
+export type WoundStatus = "baik" | "perlu-perhatian" | "bahaya";
+export type JournalEntry = { id: string; date: string; note: string; photo?: string; status: WoundStatus };
+export type Consultation = { id: string; subject: string; message: string; date: string; status: "Menunggu" | "Dijawab"; reply?: string };
+export type Reminder = { id: string; title: string; time: string; active: boolean; category?: string; days?: string; duration?: string };
+export type Profile = {
+  name: string;
+  email: string;
+  phone: string;
+  recoveryDay: number;
+  age?: string;
+  deliveryDate?: string;
+  deliveryType?: string;
+  gestationalAge?: string;
+  parity?: string;
+  wound?: string;
+  woundDegree?: string;
+  midwife?: string;
+};
+export type ReedaValues = {
+  redness: number;
+  edema: number;
+  ecchymosis: number;
+  discharge: number;
+  approximation: number;
+  pain: number;
+  fever: number;
+  odor: number;
+  bleeding: number;
+  mobility: number;
+  complaints: string;
+  updated?: string;
+};
