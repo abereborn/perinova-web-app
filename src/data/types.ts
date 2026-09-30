@@ -1,4 +1,4 @@
-export type Role = "ibu" | "bidan";
+export type Role = "ibu" | "pendamping";
 export type WoundStatus = "baik" | "perlu-perhatian" | "bahaya";
 export type JournalEntry = { id: string; date: string; note: string; photo?: string; status: WoundStatus };
 export type Consultation = { id: string; subject: string; message: string; date: string; status: "Menunggu" | "Dijawab"; reply?: string };

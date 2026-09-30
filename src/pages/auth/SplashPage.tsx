@@ -11,7 +11,7 @@ export default function SplashPage() {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       const session = getSession();
-      setLocation(session ? (session.role === "ibu" ? "/ibu/home" : "/bidan/dashboard") : "/masuk");
+      setLocation(session ? (session.role === "ibu" ? "/ibu/home" : "/pendamping/dashboard") : "/masuk");
     }, 2600);
     return () => window.clearTimeout(timer);
   }, [setLocation]);
@@ -29,7 +29,7 @@ export default function SplashPage() {
             <span className="text-[#b55367]">ditemani PERINOVA.</span>
           </h1>
           <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-[#77666b]">Teman digital untuk memahami pemulihan perineum setelah persalinan.</p>
-          <Button className="mt-8 w-full" onClick={() => setLocation(getSession()?.role === "ibu" ? "/ibu/home" : getSession()?.role === "bidan" ? "/bidan/dashboard" : "/masuk")} data-testid="button-mulai">
+          <Button className="mt-8 w-full" onClick={() => setLocation(getSession()?.role === "ibu" ? "/ibu/home" : getSession()?.role === "pendamping" ? "/pendamping/dashboard" : "/masuk")} data-testid="button-mulai">
             {getSession() ? "Lanjutkan ke aplikasi" : "Mulai perjalanan"}
           </Button>
           <p className="mt-4 text-[11px] text-[#9b8889]">Informasi di dalam aplikasi bukan pengganti pemeriksaan tenaga kesehatan.</p>

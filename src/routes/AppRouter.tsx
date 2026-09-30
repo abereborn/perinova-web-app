@@ -13,8 +13,8 @@ export default function AppRouter() {
         <Route path="/masuk" component={AuthPage} />
         <Route path="/ibu/:page/:id" component={MotherRoutes} />
         <Route path="/ibu/:page" component={MotherRoutes} />
-        <Route path="/bidan/:page/:id" component={ProviderRoutes} />
-        <Route path="/bidan/:page" component={ProviderRoutes} />
+        <Route path="/pendamping/:page/:id" component={ProviderRoutes} />
+        <Route path="/pendamping/:page" component={ProviderRoutes} />
         <Route component={AuthPage} />
       </Switch>
     </ErrorBoundary>

@@ -31,11 +31,11 @@ export default function DangerPage() {
             <Phone size={17} /> Hubungi 119
           </a>
           <a href="tel:081234567890" className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#b55367] text-sm font-bold text-white">
-            <Stethoscope size={17} /> Telepon bidan
+            <Stethoscope size={17} /> Telepon pendamping
           </a>
         </div>
         <Button variant="outline" className="mt-3 w-full" onClick={() => setLocation("/ibu/konsultasi")}>
-          Kirim pesan ke bidan
+          Kirim pesan ke pendamping
         </Button>
       </main>
     </MotherShell>

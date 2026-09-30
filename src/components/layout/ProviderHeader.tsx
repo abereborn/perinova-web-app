@@ -8,7 +8,7 @@ export function ProviderHeader({ title, subtitle }: { title: string; subtitle?: 
         <div className="mb-5 md:hidden">
           <Logo />
         </div>
-        <p className="provider-eyebrow">Ruang bidan PERINOVA</p>
+        <p className="provider-eyebrow">Ruang pendamping PERINOVA</p>
         <h1 className="serif provider-header-title mt-1.5 text-3xl font-semibold text-[#49353d]">{title}</h1>
         {subtitle && <p className="provider-header-subtitle mt-2 text-sm text-[#7d6b70]">{subtitle}</p>}
       </div>

@@ -54,7 +54,7 @@ src/
 │   │   ├── ConsultationDetailPage.tsx
 │   │   ├── ProfilePage.tsx
 │   │   └── DangerPage.tsx
-│   └── bidan/
+│   └── pendamping/
 │       ├── DashboardPage.tsx
 │       ├── PatientsPage.tsx
 │       ├── PatientDetailPage.tsx
@@ -67,7 +67,7 @@ src/
 │   ├── mother/
 │   │   ├── education/
 │   │   └── modals/
-│   ├── bidan/
+│   ├── pendamping/
 │   ├── perinova-ui.tsx        # shared PERINOVA UI primitives
 │   └── ui/                    # reusable Radix/shadcn primitives
 │
@@ -87,7 +87,7 @@ src/
 
 ## Architecture notes
 
-- Mother and Bidan pages are separated into different folders.
+- Mother and Pendamping pages are separated into different folders.
 - Each major screen has its own page file.
 - Shared layout/navigation components live under `components/layout/`.
 - Static navigation and provider demo data live under `data/`.
@@ -97,7 +97,7 @@ src/
 
 ## Demo
 
-- Choose **Saya ibu** or **Saya Pendamping** on the demo login screen.
+- Choose **Saya ibu** or **Saya pendamping** on the demo login screen.
 - The demo password can be any value.
 - Demo data is stored in browser `localStorage`.
 - Do not enter real patient or health information into this prototype.
@@ -108,7 +108,7 @@ PERINOVA is an educational and monitoring prototype. It is not a diagnostic syst
 
 ## Demo authentication flow
 
-PERINOVA sekarang menggunakan alur akun demo berbasis `localStorage`: pengguna harus mendaftar terlebih dahulu, kembali ke halaman login, lalu masuk menggunakan identifier (nomor HP/email) dan kata sandi yang baru dibuat. Route `/ibu/*` dan `/bidan/*` dilindungi berdasarkan session dan role.
+PERINOVA sekarang menggunakan alur akun demo berbasis `localStorage`: pengguna harus mendaftar terlebih dahulu, kembali ke halaman login, lalu masuk menggunakan identifier (nomor HP/email) dan kata sandi yang baru dibuat. Route `/ibu/*` dan `/pendamping/*` dilindungi berdasarkan session dan role.
 
 - Akun disimpan di browser sebagai demo lokal.
 - Registrasi **tidak** otomatis membuat session/login.
@@ -117,3 +117,4 @@ PERINOVA sekarang menggunakan alur akun demo berbasis `localStorage`: pengguna h
 - Data jurnal, reminder, REEDA, dan konsultasi demo di-scope per akun pada `localStorage`.
 - Password masih disimpan sebagai data lokal untuk kebutuhan prototype dan **bukan** mekanisme keamanan produksi.
 - Gunakan tombol **Reset data lokal** di halaman login untuk menghapus seluruh data demo browser.
+

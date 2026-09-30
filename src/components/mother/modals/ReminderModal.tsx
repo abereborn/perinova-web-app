@@ -21,7 +21,7 @@ export function ReminderModal({ initial, onClose, onSave }: { initial?: Reminder
               <option>Minum obat</option>
               <option>Minum air</option>
               <option>Istirahat</option>
-              <option>Kontrol bidan</option>
+              <option>Kontrol pendamping</option>
             </select>
           </label>
         </div>

@@ -50,7 +50,7 @@ export default function HomePage() {
         <section className="home-stats mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:mt-5 lg:gap-3">
           <QuickTile icon={<Activity size={19} />} title="Luka" value="Baik" onClick={() => setLocation("/ibu/luka")} />
           <QuickTile icon={<TrendingUp size={19} />} title="Progress" value="7 hari" onClick={() => setLocation("/ibu/progress")} />
-          <QuickTile icon={<MessageCircle size={19} />} title="Bidan" value="Siap membantu" onClick={() => setLocation("/ibu/konsultasi")} />
+          <QuickTile icon={<MessageCircle size={19} />} title="Pendamping" value="Siap membantu" onClick={() => setLocation("/ibu/konsultasi")} />
         </section>
 
         <section className="home-care">

@@ -15,7 +15,7 @@ export function ProfileDetails({ profile }: { profile: Profile }) {
           ["Paritas", profile.parity ?? "Belum diisi"],
           ["Luka/jahitan", profile.wound ?? "Belum diisi"],
           ["Derajat luka", profile.woundDegree ?? "Belum diisi"],
-          ["Bidan", profile.midwife ?? "Belum diisi"],
+          ["Pendamping", profile.midwife ?? "Belum diisi"],
         ].map(([label, value]) => (
           <div key={label}>
             <p className="text-[11px] text-[#9a878b]">{label}</p>

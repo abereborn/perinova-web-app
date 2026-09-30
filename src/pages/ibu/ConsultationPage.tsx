@@ -44,7 +44,7 @@ export default function ConsultationPage() {
           </div>
           <div className="flex-1">
             <p className="text-sm font-bold text-[#59464e]">Tanya dengan kata kunci</p>
-            <p className="mt-1 text-xs text-[#8a777c]">Jawaban awal dengan rute aman ke bidan.</p>
+            <p className="mt-1 text-xs text-[#8a777c]">Jawaban awal dengan rute aman ke pendamping.</p>
           </div>
           <ChevronRight size={18} className="text-[#a34f62]" />
         </Card>

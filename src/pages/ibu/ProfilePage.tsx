@@ -117,7 +117,7 @@ export default function ProfilePage() {
               <Field label="Paritas" value={profile.parity ?? ""} onChange={(e) => setProfile({ ...profile, parity: e.target.value })} />
             </div>
             <Field label="Tanggal persalinan" value={profile.deliveryDate ?? ""} onChange={(e) => setProfile({ ...profile, deliveryDate: e.target.value })} />
-            <Field label="Nama bidan" value={profile.midwife ?? ""} onChange={(e) => setProfile({ ...profile, midwife: e.target.value })} />
+            <Field label="Nama pendamping" value={profile.midwife ?? ""} onChange={(e) => setProfile({ ...profile, midwife: e.target.value })} />
           </div>
           <Button
             className="mt-5 w-full"

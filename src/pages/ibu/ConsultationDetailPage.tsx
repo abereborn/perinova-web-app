@@ -22,12 +22,12 @@ export default function ConsultationDetailPage({ id }: { id: string }) {
               {item.reply ? (
                 <div className="max-w-[88%] rounded-2xl rounded-tl-sm glass-tint-sage p-4 text-sm leading-relaxed text-[#557461]">
                   <div className="mb-2 flex items-center gap-2 font-bold">
-                    <Stethoscope size={15} /> Bidan Rani
+                    <Stethoscope size={15} /> Pendamping Rani
                   </div>
                   {item.reply}
                 </div>
               ) : (
-                <Notice>Pesanmu sudah diterima. Bidan akan membalas setelah meninjau.</Notice>
+                <Notice>Pesanmu sudah diterima. Pendamping akan membalas setelah meninjau.</Notice>
               )}
             </div>
             <Notice>Jika kondisi memburuk atau terasa darurat, hubungi fasilitas kesehatan segera.</Notice>

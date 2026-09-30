@@ -14,7 +14,7 @@ export default function MotherRoutes() {
   const session = getSession();
 
   if (!session) return <Redirect to="/masuk" />;
-  if (session.role !== "ibu") return <Redirect to="/bidan/dashboard" />;
+  if (session.role !== "ibu") return <Redirect to="/pendamping/dashboard" />;
 
   const page = params.page || "home";
   if (page === "konsultasi" && params.id) return <ConsultationDetailPage id={params.id} />;

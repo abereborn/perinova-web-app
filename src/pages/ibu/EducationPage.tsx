@@ -127,7 +127,7 @@ export default function EducationPage() {
 
             <div className="mt-5">
               <SectionTitle className="mt-0" title="Kapan perlu bertanya?" />
-              <Notice tone="danger">Bila nyeri makin berat, kemerahan meluas, keluar cairan berbau, atau demam, jangan menunggu. Hubungi bidan atau fasilitas kesehatan.</Notice>
+              <Notice tone="danger">Bila nyeri makin berat, kemerahan meluas, keluar cairan berbau, atau demam, jangan menunggu. Hubungi pendamping atau fasilitas kesehatan.</Notice>
             </div>
           </>
         )}

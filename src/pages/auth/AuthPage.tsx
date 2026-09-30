@@ -3,7 +3,13 @@ import { useLocation } from "wouter";
 import { Eye, EyeOff, RotateCcw, ShieldCheck, Sparkles } from "lucide-react";
 import { Button, Field, Notice, Pill } from "@/components/perinova-ui";
 import { Logo } from "@/components/common/Logo";
-import { authenticateAccount, registerAccount, seedDemo, setSession, type Role } from "@/lib/perinova-store";
+import {
+  authenticateAccount,
+  registerAccount,
+  seedDemo,
+  setSession,
+  type Role,
+} from "@/lib/perinova-store";
 import type { Profile } from "@/data/types";
 
 const emptyProfile = (): Profile => ({
@@ -54,7 +60,8 @@ export default function AuthPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const updateForm = (key: keyof typeof form, value: string) => setForm((current) => ({ ...current, [key]: value }));
+  const updateForm = (key: keyof typeof form, value: string) =>
+    setForm((current) => ({ ...current, [key]: value }));
 
   const resetMessages = () => {
     setError("");
@@ -90,7 +97,7 @@ export default function AuthPage() {
         return;
       }
       if (name.length < 2) {
-        setError(role === "ibu" ? "Masukkan nama lengkap ibu." : "Masukkan nama bidan.");
+        setError(role === "ibu" ? "Masukkan nama lengkap ibu." : "Masukkan nama pendamping.");
         return;
       }
       if (role === "ibu" && (!phone || !form.deliveryDate)) {
@@ -142,7 +149,7 @@ export default function AuthPage() {
 
     setSession({ userId: account.id, role: account.role });
     seedDemo();
-    setLocation(role === "ibu" ? "/ibu/home" : "/bidan/dashboard");
+    setLocation(role === "ibu" ? "/ibu/home" : "/pendamping/dashboard");
   };
 
   return (
@@ -183,9 +190,13 @@ export default function AuthPage() {
               <Sparkles size={12} />
               {mode === "masuk" ? "Akun PERINOVA" : "Buat akun PERINOVA"}
             </div>
-            <h1 className="auth-title serif mt-4 font-semibold text-[#49353d]">{mode === "masuk" ? "Masuk ke PERINOVA" : "Daftar akun baru"}</h1>
+            <h1 className="auth-title serif mt-4 font-semibold text-[#49353d]">
+              {mode === "masuk" ? "Masuk ke PERINOVA" : "Daftar akun baru"}
+            </h1>
             <p className="mt-3 max-w-md text-sm leading-[1.75] text-[#77666b]">
-              {mode === "masuk" ? "Masukkan akun yang sudah kamu daftarkan untuk melanjutkan ke aplikasi." : "Buat akun terlebih dahulu. Setelah berhasil didaftarkan, kamu akan kembali ke halaman login untuk masuk ke aplikasi."}
+              {mode === "masuk"
+                ? "Masukkan akun yang sudah kamu daftarkan untuk melanjutkan ke aplikasi."
+                : "Buat akun terlebih dahulu. Setelah berhasil didaftarkan, kamu akan kembali ke halaman login untuk masuk ke aplikasi."}
             </p>
           </div>
 
@@ -205,14 +216,14 @@ export default function AuthPage() {
                 </button>
                 <button
                   type="button"
-                  data-testid="button-role-bidan"
+                  data-testid="button-role-pendamping"
                   onClick={() => {
-                    setRole("bidan");
+                    setRole("pendamping");
                     resetMessages();
                   }}
-                  className={`min-h-11 rounded-[.9rem] text-sm font-bold ${role === "bidan" ? "is-active text-[#557461]" : "text-[#78666a]"}`}
+                  className={`min-h-11 rounded-[.9rem] text-sm font-bold ${role === "pendamping" ? "is-active text-[#557461]" : "text-[#78666a]"}`}
                 >
-                  Saya Pendamping
+                  Saya pendamping
                 </button>
               </div>
             </div>
@@ -272,10 +283,10 @@ export default function AuthPage() {
                           </label>
                           <Field label="Derajat luka" placeholder="Jika diketahui" value={form.woundDegree} onChange={(e) => updateForm("woundDegree", e.target.value)} />
                         </div>
-                        <Field label="Nama bidan atau tenaga kesehatan" placeholder="Contoh: Rani Kusuma" value={form.midwife} onChange={(e) => updateForm("midwife", e.target.value)} />
+                        <Field label="Nama pendamping atau tenaga kesehatan" placeholder="Contoh: Rani Kusuma" value={form.midwife} onChange={(e) => updateForm("midwife", e.target.value)} />
                       </>
                     ) : (
-                      <Field label="Nama bidan *" placeholder="Contoh: Rani Kusuma" value={form.name} onChange={(e) => updateForm("name", e.target.value)} data-testid="input-nama-bidan" />
+                      <Field label="Nama pendamping *" placeholder="Contoh: Rani Kusuma" value={form.name} onChange={(e) => updateForm("name", e.target.value)} data-testid="input-nama-pendamping" />
                     )}
                   </>
                 )}
@@ -291,12 +302,7 @@ export default function AuthPage() {
                       onChange={(e) => setPassword(e.target.value)}
                       className="glass-input min-h-11 w-full rounded-xl px-3.5 pr-12 text-sm text-[rgb(var(--pv-ink))] outline-none placeholder:text-[rgb(var(--pv-ink-soft))]/70"
                     />
-                    <button
-                      type="button"
-                      aria-label={showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"}
-                      onClick={() => setShowPassword((value) => !value)}
-                      className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-[#907b81] transition hover:bg-white/50 hover:text-[#a64f62]"
-                    >
+                    <button type="button" aria-label={showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"} onClick={() => setShowPassword((value) => !value)} className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-[#907b81] transition hover:bg-white/50 hover:text-[#a64f62]">
                       {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                     </button>
                   </span>
@@ -314,12 +320,7 @@ export default function AuthPage() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         className="glass-input min-h-11 w-full rounded-xl px-3.5 pr-12 text-sm text-[rgb(var(--pv-ink))] outline-none placeholder:text-[rgb(var(--pv-ink-soft))]/70"
                       />
-                      <button
-                        type="button"
-                        aria-label={showConfirmPassword ? "Sembunyikan konfirmasi kata sandi" : "Tampilkan konfirmasi kata sandi"}
-                        onClick={() => setShowConfirmPassword((value) => !value)}
-                        className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-[#907b81] transition hover:bg-white/50 hover:text-[#a64f62]"
-                      >
+                      <button type="button" aria-label={showConfirmPassword ? "Sembunyikan konfirmasi kata sandi" : "Tampilkan konfirmasi kata sandi"} onClick={() => setShowConfirmPassword((value) => !value)} className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-[#907b81] transition hover:bg-white/50 hover:text-[#a64f62]">
                         {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                       </button>
                     </span>
@@ -333,7 +334,7 @@ export default function AuthPage() {
               </div>
 
               <Button type="submit" data-testid="button-masuk" className="auth-submit mt-5 w-full">
-                {mode === "masuk" ? `Masuk sebagai ${role === "ibu" ? "ibu" : "bidan"}` : "Buat akun"}
+                {mode === "masuk" ? `Masuk sebagai ${role === "ibu" ? "ibu" : "pendamping"}` : "Buat akun"}
               </Button>
             </form>
 
@@ -341,23 +342,7 @@ export default function AuthPage() {
               {mode === "masuk" ? "Belum punya akun? Daftar sekarang" : "Sudah punya akun? Kembali ke login"}
             </button>
 
-            <button
-              data-testid="button-reset-demo"
-              type="button"
-              onClick={() => {
-                localStorage.clear();
-                setMode("masuk");
-                setIdentifier("");
-                setPassword("");
-                setConfirmPassword("");
-                setForm({ name: "", age: "", phone: "", deliveryDate: "", deliveryType: "Persalinan normal", gestationalAge: "", parity: "", wound: "Ada jahitan", woundDegree: "", midwife: "" });
-                setRole("ibu");
-                setError("Data akun dan demo lokal sudah direset.");
-                setSuccess("");
-                setLocation("/masuk");
-              }}
-              className="auth-reset mt-3 flex min-h-10 w-full items-center justify-center gap-2 text-xs text-[#9b8889]"
-            >
+            <button data-testid="button-reset-demo" type="button" onClick={() => { localStorage.clear(); setMode("masuk"); setIdentifier(""); setPassword(""); setConfirmPassword(""); setForm({ name: "", age: "", phone: "", deliveryDate: "", deliveryType: "Persalinan normal", gestationalAge: "", parity: "", wound: "Ada jahitan", woundDegree: "", midwife: "" }); setRole("ibu"); setError("Data akun dan demo lokal sudah direset."); setSuccess(""); setLocation("/masuk"); }} className="auth-reset mt-3 flex min-h-10 w-full items-center justify-center gap-2 text-xs text-[#9b8889]">
               <RotateCcw size={13} /> Reset data lokal
             </button>
           </div>

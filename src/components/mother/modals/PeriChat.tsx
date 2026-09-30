@@ -15,8 +15,8 @@ export function PeriChat({ onClose }: { onClose: () => void }) {
       {
         from: "bot",
         text: danger
-          ? "Kata kunci ini perlu diperhatikan. Untuk keamananmu, sebaiknya hubungi bidan sekarang atau fasilitas kesehatan bila terasa berat. Jangan menunggu jawaban chat."
-          : "Terima kasih sudah bercerita. Jaga area tetap bersih dan kering, istirahat, lalu pantau perubahannya. Jika memburuk, konsultasikan pada bidan.",
+          ? "Kata kunci ini perlu diperhatikan. Untuk keamananmu, sebaiknya hubungi pendamping sekarang atau fasilitas kesehatan bila terasa berat. Jangan menunggu jawaban chat."
+          : "Terima kasih sudah bercerita. Jaga area tetap bersih dan kering, istirahat, lalu pantau perubahannya. Jika memburuk, konsultasikan pada pendamping.",
       },
     ]);
     setInput("");

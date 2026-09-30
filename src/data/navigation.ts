@@ -12,7 +12,7 @@ export const motherNavItems: MotherNavItem[] = [
 ];
 
 export const providerNavItems = [
-  { path: "/bidan/dashboard", label: "Ringkasan", icon: HomeIcon },
-  { path: "/bidan/pasien", label: "Pasien", icon: UserRound },
-  { path: "/bidan/konsultasi", label: "Konsultasi", icon: MessageCircle },
+  { path: "/pendamping/dashboard", label: "Ringkasan", icon: HomeIcon },
+  { path: "/pendamping/pasien", label: "Pasien", icon: UserRound },
+  { path: "/pendamping/konsultasi", label: "Konsultasi", icon: MessageCircle },
 ] as const;

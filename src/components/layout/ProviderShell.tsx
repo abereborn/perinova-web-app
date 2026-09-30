@@ -12,7 +12,7 @@ export function ProviderShell({ children }: { children: ReactNode }) {
       <div className="provider-shell-frame min-h-[100dvh]">
         <aside className="provider-desktop-sidebar glass-sidebar hidden w-[272px] shrink-0 flex-col p-6 text-white lg:flex">
           <Logo />
-          <p className="mt-10 text-xs font-bold uppercase tracking-[.18em] text-[#d2e2d4]">Ruang bidan</p>
+          <p className="mt-10 text-xs font-bold uppercase tracking-[.18em] text-[#d2e2d4]">Ruang pendamping</p>
           <div className="mt-5 space-y-2">
             {providerNavItems.map(({ path, label, icon: I }) => (
               <button key={String(path)} onClick={() => setLocation(String(path))} className="flex min-h-12 w-full items-center gap-3 rounded-xl px-3 text-left text-sm font-semibold transition hover:bg-white/10">

@@ -43,7 +43,7 @@ export default function WoundPage() {
             {status === "baik"
               ? "Dari jawabanmu hari ini, belum terlihat tanda yang mengkhawatirkan. Tetap pantau dan dengarkan tubuhmu."
               : status === "bahaya"
-                ? "Ada tanda bahaya yang perlu dibicarakan sekarang. Hubungi bidan atau fasilitas kesehatan, jangan menunggu respons AI."
+                ? "Ada tanda bahaya yang perlu dibicarakan sekarang. Hubungi pendamping atau fasilitas kesehatan, jangan menunggu respons AI."
                 : "Ada perubahan yang sebaiknya dibicarakan dengan pendamping agar kamu mendapat arahan yang tepat."}
           </p>
           <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -78,7 +78,7 @@ export default function WoundPage() {
           }
         />
         {journal.length === 0 ? (
-          <EmptyState title="Belum ada catatan" description="Simpan pengamatan sederhana agar kamu dan bidan dapat melihat perubahan." action={<Button onClick={() => setJournalModal(true)}>Buat catatan</Button>} />
+          <EmptyState title="Belum ada catatan" description="Simpan pengamatan sederhana agar kamu dan pendamping dapat melihat perubahan." action={<Button onClick={() => setJournalModal(true)}>Buat catatan</Button>} />
         ) : (
           <div className="space-y-3">
             {journal.map((entry) => (
