@@ -15,7 +15,7 @@ export default function ConsultationPage() {
   const [chat, setChat] = useState(false);
   return (
     <MotherShell active="konsultasi">
-      <AppHeader title="Konsultasi" subtitle="Bidanmu siap mendengarkan" />
+      <AppHeader title="Konsultasi" subtitle="Tim Siap Membantu" />
       <main className="mother-page-main pb-2">
         <Card className="mt-5 glass-tint-sage">
           <div className="flex gap-3">
@@ -24,7 +24,7 @@ export default function ConsultationPage() {
             </div>
             <div>
               <Pill tone="sage">SAHABAT IBU</Pill>
-              <h2 className="serif mt-2 text-xl font-semibold text-[#405b49]">Bidan Rani Kusuma</h2>
+              <h2 className="serif mt-2 text-xl font-semibold text-[#405b49]">Tim pendamping ibu</h2>
               <p className="mt-1 text-xs text-[#607866]">Biasanya membalas dalam 1–2 jam</p>
             </div>
           </div>
