@@ -8,18 +8,22 @@ import { PatientRow } from "@/components/pendamping/PatientRow";
 import { ConsultTable } from "@/components/pendamping/ConsultTable";
 import { patients } from "@/data/patients";
 import { getLocalDateTime, getLocalGreeting } from "@/lib/local-time";
+import { findAccountById, getSession } from "@/lib/perinova-store";
 import { useLocalNow } from "@/hooks/use-local-time";
 
 export default function ProviderDashboard() {
   const [, setLocation] = useLocation();
   const now = useLocalNow();
   const greeting = getLocalGreeting(now);
+  const session = getSession();
+  const account = session ? findAccountById(session.userId) : null;
+  const pendampingName = account?.profile.name?.trim() || "Pendamping";
 
   return (
     <ProviderShell>
       <div className="provider-dashboard">
         <ProviderHeader
-          title={`${greeting}, Rani Kusuma`}
+          title={`${greeting}, ${pendampingName}`}
           subtitle={`${getLocalDateTime(now)} · Ringkasan pendampingan hari ini.`}
         />
 

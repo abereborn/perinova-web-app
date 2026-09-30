@@ -1,7 +1,12 @@
 import { UserRound } from "lucide-react";
 import { Logo } from "@/components/common/Logo";
+import { findAccountById, getSession } from "@/lib/perinova-store";
 
 export function ProviderHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+  const session = getSession();
+  const account = session ? findAccountById(session.userId) : null;
+  const pendampingName = account?.profile.name?.trim() || "Pendamping";
+
   return (
     <header className="provider-header-card">
       <div className="provider-header-copy">
@@ -15,7 +20,7 @@ export function ProviderHeader({ title, subtitle }: { title: string; subtitle?: 
       <div className="provider-profile-chip">
         <div className="provider-avatar" aria-hidden="true"><UserRound size={17} /></div>
         <div className="hidden sm:block">
-          <p className="text-sm font-bold text-[#59464e]">Rani Kusuma</p>
+          <p className="text-sm font-bold text-[#59464e]">{pendampingName}</p>
           <p className="text-xs text-[#8a777c]">Sahabat Ibu</p>
         </div>
       </div>

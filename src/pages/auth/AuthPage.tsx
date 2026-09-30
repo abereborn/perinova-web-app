@@ -268,10 +268,7 @@ export default function AuthPage() {
                             </select>
                           </label>
                         </div>
-                        <div className="grid grid-cols-2 gap-3">
-                          <Field label="Usia kehamilan" placeholder="39 minggu" value={form.gestationalAge} onChange={(e) => updateForm("gestationalAge", e.target.value)} />
-                          <Field label="Paritas" placeholder="G1P1" value={form.parity} onChange={(e) => updateForm("parity", e.target.value)} />
-                        </div>
+                        <Field label="Usia kehamilan" placeholder="39 minggu" value={form.gestationalAge} onChange={(e) => updateForm("gestationalAge", e.target.value)} />
                         <div className="grid grid-cols-2 gap-3">
                           <label className="block space-y-1.5">
                             <span className="text-sm font-semibold text-[#59464e]">Luka atau jahitan</span>
