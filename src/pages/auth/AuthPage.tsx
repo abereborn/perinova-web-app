@@ -3,13 +3,7 @@ import { useLocation } from "wouter";
 import { Eye, EyeOff, RotateCcw, ShieldCheck, Sparkles } from "lucide-react";
 import { Button, Field, Notice, Pill } from "@/components/perinova-ui";
 import { Logo } from "@/components/common/Logo";
-import {
-  authenticateAccount,
-  registerAccount,
-  seedDemo,
-  setSession,
-  type Role,
-} from "@/lib/perinova-store";
+import { authenticateAccount, registerAccount, seedDemo, setSession, type Role } from "@/lib/perinova-store";
 import type { Profile } from "@/data/types";
 
 const emptyProfile = (): Profile => ({
@@ -60,8 +54,7 @@ export default function AuthPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const updateForm = (key: keyof typeof form, value: string) =>
-    setForm((current) => ({ ...current, [key]: value }));
+  const updateForm = (key: keyof typeof form, value: string) => setForm((current) => ({ ...current, [key]: value }));
 
   const resetMessages = () => {
     setError("");
@@ -161,7 +154,7 @@ export default function AuthPage() {
             <div className="mt-16 max-w-xl">
               <Pill tone="rose">DIGITAL PERINEAL CARE</Pill>
               <h2 className="serif mt-5 text-5xl font-semibold leading-[1.02] text-[#49353d]">Ruang pemulihan yang terasa lebih tenang.</h2>
-              <p className="mt-5 max-w-lg text-base leading-relaxed text-[#746269]">PERINOVA membantu ibu nifas memantau kondisi, memahami edukasi, mencatat perkembangan, dan tetap terhubung dengan bidan.</p>
+              <p className="mt-5 max-w-lg text-base leading-relaxed text-[#746269]">PERINOVA membantu ibu nifas memantau kondisi, memahami edukasi, mencatat perkembangan, dan tetap terhubung dengan pendamping.</p>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-3">
@@ -175,7 +168,7 @@ export default function AuthPage() {
             </div>
             <div className="glass-card p-4">
               <p className="text-xs font-semibold text-[#7f6d73]">Terhubung</p>
-              <p className="serif mt-1 text-lg font-semibold text-[#49353d]">Dengan bidan</p>
+              <p className="serif mt-1 text-lg font-semibold text-[#49353d]">Dengan pendamping</p>
             </div>
           </div>
         </section>
@@ -190,13 +183,9 @@ export default function AuthPage() {
               <Sparkles size={12} />
               {mode === "masuk" ? "Akun PERINOVA" : "Buat akun PERINOVA"}
             </div>
-            <h1 className="auth-title serif mt-4 font-semibold text-[#49353d]">
-              {mode === "masuk" ? "Masuk ke PERINOVA" : "Daftar akun baru"}
-            </h1>
+            <h1 className="auth-title serif mt-4 font-semibold text-[#49353d]">{mode === "masuk" ? "Masuk ke PERINOVA" : "Daftar akun baru"}</h1>
             <p className="mt-3 max-w-md text-sm leading-[1.75] text-[#77666b]">
-              {mode === "masuk"
-                ? "Masukkan akun yang sudah kamu daftarkan untuk melanjutkan ke aplikasi."
-                : "Buat akun terlebih dahulu. Setelah berhasil didaftarkan, kamu akan kembali ke halaman login untuk masuk ke aplikasi."}
+              {mode === "masuk" ? "Masukkan akun yang sudah kamu daftarkan untuk melanjutkan ke aplikasi." : "Buat akun terlebih dahulu. Setelah berhasil didaftarkan, kamu akan kembali ke halaman login untuk masuk ke aplikasi."}
             </p>
           </div>
 
@@ -223,7 +212,7 @@ export default function AuthPage() {
                   }}
                   className={`min-h-11 rounded-[.9rem] text-sm font-bold ${role === "bidan" ? "is-active text-[#557461]" : "text-[#78666a]"}`}
                 >
-                  Saya bidan
+                  Saya Pendamping
                 </button>
               </div>
             </div>
@@ -302,7 +291,12 @@ export default function AuthPage() {
                       onChange={(e) => setPassword(e.target.value)}
                       className="glass-input min-h-11 w-full rounded-xl px-3.5 pr-12 text-sm text-[rgb(var(--pv-ink))] outline-none placeholder:text-[rgb(var(--pv-ink-soft))]/70"
                     />
-                    <button type="button" aria-label={showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"} onClick={() => setShowPassword((value) => !value)} className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-[#907b81] transition hover:bg-white/50 hover:text-[#a64f62]">
+                    <button
+                      type="button"
+                      aria-label={showPassword ? "Sembunyikan kata sandi" : "Tampilkan kata sandi"}
+                      onClick={() => setShowPassword((value) => !value)}
+                      className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-[#907b81] transition hover:bg-white/50 hover:text-[#a64f62]"
+                    >
                       {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                     </button>
                   </span>
@@ -320,7 +314,12 @@ export default function AuthPage() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         className="glass-input min-h-11 w-full rounded-xl px-3.5 pr-12 text-sm text-[rgb(var(--pv-ink))] outline-none placeholder:text-[rgb(var(--pv-ink-soft))]/70"
                       />
-                      <button type="button" aria-label={showConfirmPassword ? "Sembunyikan konfirmasi kata sandi" : "Tampilkan konfirmasi kata sandi"} onClick={() => setShowConfirmPassword((value) => !value)} className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-[#907b81] transition hover:bg-white/50 hover:text-[#a64f62]">
+                      <button
+                        type="button"
+                        aria-label={showConfirmPassword ? "Sembunyikan konfirmasi kata sandi" : "Tampilkan konfirmasi kata sandi"}
+                        onClick={() => setShowConfirmPassword((value) => !value)}
+                        className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-[#907b81] transition hover:bg-white/50 hover:text-[#a64f62]"
+                      >
                         {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                       </button>
                     </span>
@@ -342,7 +341,23 @@ export default function AuthPage() {
               {mode === "masuk" ? "Belum punya akun? Daftar sekarang" : "Sudah punya akun? Kembali ke login"}
             </button>
 
-            <button data-testid="button-reset-demo" type="button" onClick={() => { localStorage.clear(); setMode("masuk"); setIdentifier(""); setPassword(""); setConfirmPassword(""); setForm({ name: "", age: "", phone: "", deliveryDate: "", deliveryType: "Persalinan normal", gestationalAge: "", parity: "", wound: "Ada jahitan", woundDegree: "", midwife: "" }); setRole("ibu"); setError("Data akun dan demo lokal sudah direset."); setSuccess(""); setLocation("/masuk"); }} className="auth-reset mt-3 flex min-h-10 w-full items-center justify-center gap-2 text-xs text-[#9b8889]">
+            <button
+              data-testid="button-reset-demo"
+              type="button"
+              onClick={() => {
+                localStorage.clear();
+                setMode("masuk");
+                setIdentifier("");
+                setPassword("");
+                setConfirmPassword("");
+                setForm({ name: "", age: "", phone: "", deliveryDate: "", deliveryType: "Persalinan normal", gestationalAge: "", parity: "", wound: "Ada jahitan", woundDegree: "", midwife: "" });
+                setRole("ibu");
+                setError("Data akun dan demo lokal sudah direset.");
+                setSuccess("");
+                setLocation("/masuk");
+              }}
+              className="auth-reset mt-3 flex min-h-10 w-full items-center justify-center gap-2 text-xs text-[#9b8889]"
+            >
               <RotateCcw size={13} /> Reset data lokal
             </button>
           </div>

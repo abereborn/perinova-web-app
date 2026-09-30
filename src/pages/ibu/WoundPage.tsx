@@ -44,7 +44,7 @@ export default function WoundPage() {
               ? "Dari jawabanmu hari ini, belum terlihat tanda yang mengkhawatirkan. Tetap pantau dan dengarkan tubuhmu."
               : status === "bahaya"
                 ? "Ada tanda bahaya yang perlu dibicarakan sekarang. Hubungi bidan atau fasilitas kesehatan, jangan menunggu respons AI."
-                : "Ada perubahan yang sebaiknya dibicarakan dengan bidan agar kamu mendapat arahan yang tepat."}
+                : "Ada perubahan yang sebaiknya dibicarakan dengan pendamping agar kamu mendapat arahan yang tepat."}
           </p>
           <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {status === "bahaya" && (

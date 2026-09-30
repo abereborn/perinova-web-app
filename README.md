@@ -97,7 +97,7 @@ src/
 
 ## Demo
 
-- Choose **Saya ibu** or **Saya bidan** on the demo login screen.
+- Choose **Saya ibu** or **Saya Pendamping** on the demo login screen.
 - The demo password can be any value.
 - Demo data is stored in browser `localStorage`.
 - Do not enter real patient or health information into this prototype.
@@ -117,4 +117,3 @@ PERINOVA sekarang menggunakan alur akun demo berbasis `localStorage`: pengguna h
 - Data jurnal, reminder, REEDA, dan konsultasi demo di-scope per akun pada `localStorage`.
 - Password masih disimpan sebagai data lokal untuk kebutuhan prototype dan **bukan** mekanisme keamanan produksi.
 - Gunakan tombol **Reset data lokal** di halaman login untuk menghapus seluruh data demo browser.
-
