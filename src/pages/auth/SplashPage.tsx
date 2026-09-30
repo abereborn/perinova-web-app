@@ -3,13 +3,19 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/perinova-ui";
 import { Logo } from "@/components/common/Logo";
 import { ASSET } from "@/constants/assets";
+import { getSession } from "@/lib/perinova-store";
 
 export default function SplashPage() {
   const [, setLocation] = useLocation();
+
   useEffect(() => {
-    const timer = window.setTimeout(() => setLocation("/masuk"), 3200);
+    const timer = window.setTimeout(() => {
+      const session = getSession();
+      setLocation(session ? (session.role === "ibu" ? "/ibu/home" : "/bidan/dashboard") : "/masuk");
+    }, 2600);
     return () => window.clearTimeout(timer);
   }, [setLocation]);
+
   return (
     <main className="grid min-h-[100dvh] place-items-center p-6">
       <div className="splash-shell glass-panel relative grid min-h-[90dvh] w-full max-w-5xl place-items-center overflow-hidden px-7 py-10 text-center lg:px-14">
@@ -23,8 +29,8 @@ export default function SplashPage() {
             <span className="text-[#b55367]">ditemani PERINOVA.</span>
           </h1>
           <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-[#77666b]">Teman digital untuk memahami pemulihan perineum setelah persalinan.</p>
-          <Button className="mt-8 w-full" onClick={() => setLocation("/masuk")} data-testid="button-mulai">
-            Mulai perjalanan
+          <Button className="mt-8 w-full" onClick={() => setLocation(getSession()?.role === "ibu" ? "/ibu/home" : getSession()?.role === "bidan" ? "/bidan/dashboard" : "/masuk")} data-testid="button-mulai">
+            {getSession() ? "Lanjutkan ke aplikasi" : "Mulai perjalanan"}
           </Button>
           <p className="mt-4 text-[11px] text-[#9b8889]">Informasi di dalam aplikasi bukan pengganti pemeriksaan tenaga kesehatan.</p>
         </div>

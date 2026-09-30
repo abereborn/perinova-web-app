@@ -105,3 +105,16 @@ src/
 ## Medical safety
 
 PERINOVA is an educational and monitoring prototype. It is not a diagnostic system, emergency service, or replacement for direct examination by a midwife or doctor. If danger signs are present, contact a healthcare professional or healthcare facility directly and do not wait for an AI response.
+
+## Demo authentication flow
+
+PERINOVA sekarang menggunakan alur akun demo berbasis `localStorage`: pengguna harus mendaftar terlebih dahulu, kembali ke halaman login, lalu masuk menggunakan identifier (nomor HP/email) dan kata sandi yang baru dibuat. Route `/ibu/*` dan `/bidan/*` dilindungi berdasarkan session dan role.
+
+- Akun disimpan di browser sebagai demo lokal.
+- Registrasi **tidak** otomatis membuat session/login.
+- Setelah registrasi berhasil, pengguna dikembalikan ke mode login.
+- Data profil disimpan bersama akun dan dipakai kembali setelah login.
+- Data jurnal, reminder, REEDA, dan konsultasi demo di-scope per akun pada `localStorage`.
+- Password masih disimpan sebagai data lokal untuk kebutuhan prototype dan **bukan** mekanisme keamanan produksi.
+- Gunakan tombol **Reset data lokal** di halaman login untuk menghapus seluruh data demo browser.
+
