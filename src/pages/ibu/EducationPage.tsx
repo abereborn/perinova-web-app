@@ -90,15 +90,21 @@ export default function EducationPage() {
             </div>
 
             <Card className="mt-4 p-5 sm:p-6">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                <div>
+              <div className="education-intro">
+                <div className="education-intro-main">
                   <Pill tone="sage">{activeCategory.label.toUpperCase()}</Pill>
-                  <h2 className="serif mt-2 text-2xl font-semibold text-[#493d40]">Perubahan yang bisa diamati</h2>
+                  <h2 className="education-intro-title serif">Perubahan yang bisa diamati</h2>
                 </div>
-                <p className="max-w-sm text-xs leading-relaxed text-[#8a777c] sm:text-right">{activeCategory.description} Tahapan di bawah adalah gambaran edukatif; setiap tubuh dapat pulih dengan ritme yang berbeda.</p>
+
+                <div className="education-intro-description">
+                  <div>
+                    <span className="education-intro-description-label">Gambaran pemulihan</span>
+                    <p>{activeCategory.description} Tahapan di bawah adalah gambaran edukatif; setiap tubuh dapat pulih dengan ritme yang berbeda.</p>
+                  </div>
+                </div>
               </div>
 
-              <div className="recovery-timeline mt-6" aria-label={`Timeline ${activeCategory.label}`}>
+              <div className="recovery-timeline mt-7" aria-label={`Timeline ${activeCategory.label}`}>
                 {timeline.map((stage, index) => {
                   const isLeft = index % 2 === 0;
                   return (

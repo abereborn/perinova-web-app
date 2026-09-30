@@ -1143,6 +1143,57 @@ a {
 }
 
 /* Education wound category selector */
+.education-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  gap: 2rem;
+  align-items: end;
+  padding-top: 0.15rem;
+}
+.education-intro-main {
+  min-width: 0;
+}
+.education-intro-title {
+  max-width: 560px;
+  margin-top: 0.7rem;
+  font-size: clamp(2rem, 3.15vw, 2.9rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: #493d40;
+  text-wrap: balance;
+}
+.education-intro-description {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-width: 0;
+  max-width: 560px;
+  margin-left: auto;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(120, 101, 106, 0.18);
+}
+.education-intro-description > div {
+  max-width: 500px;
+}
+.education-intro-description-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #9a737e;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.education-intro-description p {
+  margin: 0;
+  color: #8a777c;
+  font-size: 13px;
+  line-height: 1.72;
+}
+
 .education-category-switch {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1185,6 +1236,31 @@ a {
   font-size: 10px;
   line-height: 1.3;
   opacity: 0.82;
+}
+
+@media (max-width: 767px) {
+  .education-intro {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+    align-items: start;
+  }
+  .education-intro-title {
+    max-width: 100%;
+    margin-top: 0.65rem;
+    font-size: clamp(1.85rem, 8vw, 2.25rem);
+    line-height: 1.08;
+  }
+  .education-intro-description {
+    max-width: none;
+    padding-top: 1rem;
+    padding-left: 0;
+    border-top: 1px solid rgba(120, 101, 106, 0.16);
+    border-left: 0;
+  }
+  .education-intro-description p {
+    font-size: 12px;
+    line-height: 1.65;
+  }
 }
 
 @media (max-width: 640px) {
