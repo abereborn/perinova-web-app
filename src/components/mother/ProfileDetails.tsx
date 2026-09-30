@@ -12,7 +12,6 @@ export function ProfileDetails({ profile }: { profile: Profile }) {
           ["Tanggal persalinan", profile.deliveryDate ?? "Belum diisi"],
           ["Jenis persalinan", profile.deliveryType ?? "Belum diisi"],
           ["Usia kehamilan", profile.gestationalAge ?? "Belum diisi"],
-          ["Paritas", profile.parity ?? "Belum diisi"],
           ["Luka/jahitan", profile.wound ?? "Belum diisi"],
           ["Derajat luka", profile.woundDegree ?? "Belum diisi"],
           ["Pendamping", profile.midwife ?? "Belum diisi"],

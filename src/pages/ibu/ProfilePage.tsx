@@ -114,7 +114,6 @@ export default function ProfilePage() {
             <Field label="Nomor telepon" value={profile.phone} onChange={(e) => setProfile({ ...profile, phone: e.target.value })} />
             <div className="grid grid-cols-2 gap-3">
               <Field label="Usia" value={profile.age ?? ""} onChange={(e) => setProfile({ ...profile, age: e.target.value })} />
-              <Field label="Paritas" value={profile.parity ?? ""} onChange={(e) => setProfile({ ...profile, parity: e.target.value })} />
             </div>
             <Field label="Tanggal persalinan" value={profile.deliveryDate ?? ""} onChange={(e) => setProfile({ ...profile, deliveryDate: e.target.value })} />
             <Field label="Nama pendamping" value={profile.midwife ?? ""} onChange={(e) => setProfile({ ...profile, midwife: e.target.value })} />
