@@ -37,11 +37,11 @@ const woundTimelines: Record<WoundCategory, { image: string; label: string; head
     { image: "MingguBerikutnya.jpeg", label: "Minggu ke-3–4", headline: "Nyeri sekitar 0–1/10", detail: "Sebagian besar sudah tidak nyeri jika penyembuhan berjalan normal." },
   ],
   caesar: [
-    { image: "Hari-1-Operasi.jpeg", label: "Hari ke-1", headline: "Nyeri sedang–berat", detail: "Mulai mobilisasi dengan bantuan dan lakukan gerakan secara bertahap sesuai kemampuan tubuh." },
-    { image: "Hari-3-Operasi.jpeg", label: "Hari ke-3", headline: "Nyeri mulai berkurang", detail: "Mulai lebih aktif secara perlahan, sambil tetap menjaga area sayatan." },
-    { image: "Minggu-Ke-1-Operasi.jpeg", label: "Minggu ke-1", headline: "Luka mulai mengering", detail: "Aktivitas ringan dapat dilakukan secara bertahap sesuai rasa nyaman." },
-    { image: "Minggu-Ke-2-Operasi.jpeg", label: "Minggu ke-2", headline: "Nyeri minimal", detail: "Aktivitas makin leluasa, tetap perhatikan kondisi luka dan batas nyaman tubuh." },
-    { image: "Setelah-Beberapa-Bulan-Operasi.jpeg", label: "Beberapa bulan", headline: "Bekas luka memudar", detail: "Aktivitas umumnya kembali normal sesuai proses pemulihan masing-masing." },
+    { image: "Hari-1-Operasi.jpeg", label: "Hari ke-1", headline: "Nyeri sekitar 4–7/10", detail: "Terutama saat bergerak, batuk, atau berdiri. Mulai mobilisasi dengan bantuan." },
+    { image: "Hari-3-Operasi.jpeg", label: "Hari ke-3", headline: "Nyeri sekitar 3–5/10", detail: "Ibu mulai lebih aktif bergerak." },
+    { image: "Minggu-Ke-1-Operasi.jpeg", label: "Minggu ke-1", headline: "Nyeri sekitar 2–4/10", detail: "Nyeri menjadi lebih ringan (skala 2–4/10), dan aktivitas ringan mulai dapat dilakukan." },
+    { image: "Minggu-Ke-2-Operasi.jpeg", label: "Minggu ke-2", headline: "Nyeri minimal (skala 0–2/10)", detail: "Aktivitas semakin leluasa." },
+    { image: "Setelah-Beberapa-Bulan-Operasi.jpeg", label: "Beberapa bulan", headline: "Nyeri minimal 0–1/10", detail: "Nyeri umumnya sudah tidak ada atau sangat minimal (skala 0–1/10), dan aktivitas umumnya kembali normal." },
   ],
 };
 
@@ -76,13 +76,7 @@ export default function EducationPage() {
           <>
             <div className="education-category-switch mt-5" aria-label="Kategori kenali luka">
               {woundCategories.map((category) => (
-                <button
-                  key={category.id}
-                  type="button"
-                  onClick={() => setWoundCategory(category.id)}
-                  className={`education-category-button ${woundCategory === category.id ? "is-active" : ""}`}
-                  aria-pressed={woundCategory === category.id}
-                >
+                <button key={category.id} type="button" onClick={() => setWoundCategory(category.id)} className={`education-category-button ${woundCategory === category.id ? "is-active" : ""}`} aria-pressed={woundCategory === category.id}>
                   <span className="education-category-title">{category.shortLabel}</span>
                   <span className="education-category-subtitle">{category.id === "perineum" ? "Pasca persalinan normal" : "Sectio Caesarea"}</span>
                 </button>
@@ -119,16 +113,16 @@ export default function EducationPage() {
                           <p className="mt-1.5 text-xs leading-[1.7] text-[#78656a]">{stage.detail}</p>
                         </div>
                       </div>
-                      <div className="recovery-node" aria-hidden="true">{index + 1}</div>
+                      <div className="recovery-node" aria-hidden="true">
+                        {index + 1}
+                      </div>
                       {index < timeline.length - 1 && <ChevronDown className="recovery-connector-mobile" size={18} aria-hidden="true" />}
                     </div>
                   );
                 })}
               </div>
 
-              <p className="mt-2 text-[10px] leading-relaxed text-[#927f84]">
-                Gambar merupakan media edukasi untuk membantu mengenali gambaran perubahan dari waktu ke waktu, bukan untuk menilai kondisi luka secara mandiri.
-              </p>
+              <p className="mt-2 text-[10px] leading-relaxed text-[#927f84]">Gambar merupakan media edukasi untuk membantu mengenali gambaran perubahan dari waktu ke waktu, bukan untuk menilai kondisi luka secara mandiri.</p>
             </Card>
 
             <div className="mt-5">
